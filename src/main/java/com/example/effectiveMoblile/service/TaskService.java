@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -29,7 +30,6 @@ public class TaskService {
         task.setTasks(taskDTO.getTasks());
         task.setComments(taskDTO.getComments());
         task.setStatus(taskDTO.getStatus());
-        task.setOwner(taskDTO.getOwner());
         task.setUser(convertUser(taskDTO.getUserId()));
         return taskRepository.save(task);
 
@@ -39,4 +39,13 @@ public class TaskService {
         return userRepository.findById(userId).orElseThrow();
         }
 
+    public void deleteTask(Integer taskId) {
+        boolean exists = taskRepository.existsById(taskId);
+        if (!exists) {
+            throw new IllegalStateException("Task with id "
+                    + taskId + " does not exists");
+        }
+
+        taskRepository.deleteById(taskId);
+    }
 }

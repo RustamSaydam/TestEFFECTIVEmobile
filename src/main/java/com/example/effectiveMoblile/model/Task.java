@@ -15,7 +15,6 @@ public class Task {
 
     private String tasks;
 
-    private String owner;
 
     private String comments;
 
@@ -34,10 +33,9 @@ public class Task {
         this.user = user;
     }
 
-    public Task(Long id, String tasks, String owner, String comments, String status) {
+    public Task(Long id, String tasks, String comments, String status) {
         this.id = id;
         this.tasks = tasks;
-        this.owner = owner;
         this.comments = comments;
         this.status = status;
     }
@@ -61,14 +59,6 @@ public class Task {
         this.tasks = tasks;
     }
 
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
     public String getComments() {
         return comments;
     }
@@ -90,11 +80,11 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(id, task.id) && Objects.equals(tasks, task.tasks) && Objects.equals(owner, task.owner) && Objects.equals(comments, task.comments) && Objects.equals(status, task.status);
+        return Objects.equals(id, task.id) && Objects.equals(tasks, task.tasks) && Objects.equals(comments, task.comments) && Objects.equals(status, task.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tasks, owner, comments, status);
+        return Objects.hash(id, tasks, comments, status);
     }
 }

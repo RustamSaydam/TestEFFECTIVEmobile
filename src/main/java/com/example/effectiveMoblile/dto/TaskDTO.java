@@ -6,8 +6,6 @@ public class TaskDTO {
 
     private String tasks;
 
-    private String owner;
-
     private String comments;
 
     private String status;
@@ -19,14 +17,6 @@ public class TaskDTO {
 
     public void setTasks(String tasks) {
         this.tasks = tasks;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public void setOwner(String owner) {
-        this.owner = owner;
     }
 
     public String getComments() {
