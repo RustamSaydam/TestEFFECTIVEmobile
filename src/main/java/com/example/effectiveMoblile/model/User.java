@@ -1,6 +1,8 @@
-package com.example.effectiveMoblile.user;
+package com.example.effectiveMoblile.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,17 +17,36 @@ import java.util.Objects;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty(message = "Name does not be empty")
+    @Column(name = "firstname")
     private String firstname;
 
+    @NotEmpty(message = "Lastname does not be empty")
+    @Column(name = "lastName")
     private String lastName;
 
+    @Email
+    @Column(name = "email", unique = true)
     private String email;
 
+    @Column(name = "password")
     private String password;
-    
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<Task> tasks;
+
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public User(Integer id, Role role, String firstname, String lastName, String email, String password) {
         this.id = id;
         this.firstname = firstname;
