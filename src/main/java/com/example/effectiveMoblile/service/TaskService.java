@@ -30,6 +30,7 @@ public class TaskService {
         task.setTasks(taskDTO.getTasks());
         task.setComments(taskDTO.getComments());
         task.setStatus(taskDTO.getStatus());
+        task.setExecutor(taskDTO.getExecutor());
         task.setUser(convertUser(taskDTO.getUserId()));
         return taskRepository.save(task);
 
@@ -48,4 +49,34 @@ public class TaskService {
 
         taskRepository.deleteById(taskId);
     }
+
+    public void editTask(Integer taskId, TaskDTO taskDTO) {
+        Optional<Task> taskOpt = taskRepository.findById(taskId);
+
+        if (taskOpt.isPresent()) {
+            Task editTask = taskOpt.get();
+            if(taskDTO.getStatus() != null) {
+                editTask.setStatus(taskDTO.getStatus());
+            }
+            if(taskDTO.getTasks() != null) {
+                editTask.setTasks(taskDTO.getTasks());
+            }
+            if(taskDTO.getExecutor() != null) {
+                editTask.setExecutor(taskDTO.getExecutor());
+            }
+            if(taskDTO.getComments() != null) {
+                editTask.setComments(taskDTO.getComments());
+            }
+
+            taskRepository.save(editTask);
+        } else {
+            throw new IllegalStateException("Task with id "
+                    + taskId + " does not exists");
+        }
+    }
 }
+
+
+/*
+
+ */

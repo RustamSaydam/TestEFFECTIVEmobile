@@ -33,4 +33,9 @@ public class TaskController {
     public void deleteTask(@PathVariable("taskId") Integer taskId) {
         taskService.deleteTask(taskId);
     }
+
+    @PatchMapping("/tasks/{taskId}")
+    public void editTask(@PathVariable("taskId") Integer taskId, @RequestBody TaskDTO taskDTO) {
+        taskService.editTask(taskId, taskDTO);
+    }
 }

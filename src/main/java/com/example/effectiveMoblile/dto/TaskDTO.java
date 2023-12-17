@@ -2,13 +2,17 @@ package com.example.effectiveMoblile.dto;
 
 public class TaskDTO {
 
-    Integer userId;
+    private Integer userId;
 
     private String tasks;
 
     private String comments;
 
     private String status;
+
+    private String executor;
+
+
 
 
     public String getTasks() {
@@ -41,5 +45,13 @@ public class TaskDTO {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getExecutor() {
+        return executor;
+    }
+
+    public void setExecutor(String executor) {
+        this.executor = executor;
     }
 }
