@@ -69,6 +69,13 @@ public class RegisterRequest {
         return Objects.hash(firstname, lastName, email, password);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "RegisterRequest{" +
+                "firstname='" + firstname + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

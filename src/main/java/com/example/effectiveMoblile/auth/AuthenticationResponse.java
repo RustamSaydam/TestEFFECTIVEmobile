@@ -58,4 +58,11 @@ public class AuthenticationResponse {
             return "AuthenticationResponse.AuthenticationResponseBuilder(token=" + this.token + ")";
         }
     }
+
+    @Override
+    public String toString() {
+        return "AuthenticationResponse{" +
+                "token='" + token + '\'' +
+                '}';
+    }
 }

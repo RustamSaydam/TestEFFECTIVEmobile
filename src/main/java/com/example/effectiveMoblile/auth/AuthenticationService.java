@@ -61,4 +61,13 @@ public class AuthenticationService {
         this.authenticationManager = authenticationManager;
     }
 
+    @Override
+    public String toString() {
+        return "AuthenticationService{" +
+                "userRepository=" + userRepository +
+                ", passwordEncoder=" + passwordEncoder +
+                ", jwtService=" + jwtService +
+                ", authenticationManager=" + authenticationManager +
+                '}';
+    }
 }

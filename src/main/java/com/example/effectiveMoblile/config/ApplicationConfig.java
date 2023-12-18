@@ -46,4 +46,6 @@ public class ApplicationConfig {
     public ApplicationConfig(UserRepository repository) {
         this.repository = repository;
     }
+
+
 }
