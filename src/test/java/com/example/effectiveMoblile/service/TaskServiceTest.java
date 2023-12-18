@@ -1,45 +1,45 @@
 package com.example.effectiveMoblile.service;
 
-import com.example.effectiveMoblile.repository.TaskRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
+import com.example.effectiveMoblile.controller.TaskController;
+import com.example.effectiveMoblile.model.Task;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import static org.mockito.Mockito.verify;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class TaskServiceTest {
 
     @Mock
-    private TaskRepository taskRepository;
-    private AutoCloseable autoCloseable;
-    private TaskService underTest;
+    TaskService taskService;
 
-    @BeforeEach
-    void setUp() {
-        autoCloseable = MockitoAnnotations.openMocks(this);
-        underTest = new TaskService(taskRepository);
-    }
 
-    @AfterEach
-    void tearDown() throws Exception {
-        autoCloseable.close();
-    }
+    @InjectMocks
+   TaskController taskController;
 
     @Test
     void canAllTasks() {
+        //given
+        var tasks = List.of(
+                new Task(1L, "tasks1", "executor1", "comments1", "status1"),
+                new Task(2L, "tasks2", "executor2", "comments2", "status2"));
+
+        Mockito.doReturn(tasks).when(this.taskService).getAllTasks();
+
         // when
-        underTest.getAllTasks();
+        var response = this.taskController.getAllTasks();
+
         //then
-        verify(taskRepository.findAll());
+        assertNotNull(response);
+        assertEquals(response.size(),2);
+        assertEquals(response.get(1).getTasks(), "tasks2");
 
-    }
-
-    @Test
-    @Disabled
-    void addNewTask() {
     }
 }
