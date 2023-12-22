@@ -12,6 +12,8 @@ java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
 
+
+
 repositories {
 	mavenCentral()
 }
@@ -26,6 +28,8 @@ dependencies {
 	implementation("io.jsonwebtoken:jjwt-jackson:0.11.5")
 	implementation ("org.apache.logging.log4j:log4j-api:2.22.0")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+	implementation("org.apache.maven.plugins:maven-jar-plugin:3.3.0")
+
 
 
 
@@ -42,4 +46,21 @@ dependencies {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+
+
 }
+
+
+/*
+tasks.withType<Jar>() {
+
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	manifest {
+		attributes["Main-Class"] = "build.classes.java.main.com.example.effectiveMoblile.EffectiveMoblileApplication"
+	}
+	configurations["compileClasspath"].forEach { file: File ->
+		from(zipTree(file.absoluteFile))
+	}
+}
+*/
