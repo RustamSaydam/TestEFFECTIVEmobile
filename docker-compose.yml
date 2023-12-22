@@ -2,7 +2,7 @@ version: '2'
 
 services:
   app:
-    image: 'myorg/myapp:latest'
+    image: 'myapp:latest'
     build:
       context: .
     container_name: app
