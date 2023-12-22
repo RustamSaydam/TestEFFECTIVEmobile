@@ -44,4 +44,14 @@ public class AuthenticationRequest {
     public int hashCode() {
         return Objects.hash(email, password);
     }
+
+    @Override
+    public String toString() {
+        return "AuthenticationRequest{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
+
+

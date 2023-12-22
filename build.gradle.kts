@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.2.0"
 	id("io.spring.dependency-management") version "1.1.4"
+
 }
 
 group = "com.example"
@@ -10,6 +11,8 @@ version = "0.0.1-SNAPSHOT"
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
+
+
 
 repositories {
 	mavenCentral()
@@ -23,15 +26,41 @@ dependencies {
 	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
 	implementation("io.jsonwebtoken:jjwt-impl:0.11.5")
 	implementation("io.jsonwebtoken:jjwt-jackson:0.11.5")
+	implementation ("org.apache.logging.log4j:log4j-api:2.22.0")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+	implementation("org.apache.maven.plugins:maven-jar-plugin:3.3.0")
+
+
+
+
 	//developmentOnly("org.springframework.boot:spring-boot-docker-compose")
-	compileOnly("org.projectlombok:lombok:1.18.30")
 	runtimeOnly("org.postgresql:postgresql")
 	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
 	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
+	testImplementation("org.mockito:mockito-core:5.8.0")
+
 }
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+
+
 }
+
+
+/*
+tasks.withType<Jar>() {
+
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	manifest {
+		attributes["Main-Class"] = "build.classes.java.main.com.example.effectiveMoblile.EffectiveMoblileApplication"
+	}
+	configurations["compileClasspath"].forEach { file: File ->
+		from(zipTree(file.absoluteFile))
+	}
+}
+*/

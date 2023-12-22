@@ -1,5 +1,6 @@
-package com.example.effectiveMoblile.user;
+package com.example.effectiveMoblile.repository;
 
+import com.example.effectiveMoblile.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

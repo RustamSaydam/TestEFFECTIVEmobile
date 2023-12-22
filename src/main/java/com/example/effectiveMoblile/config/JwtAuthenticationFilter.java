@@ -60,4 +60,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         this.userDetailsService = userDetailsService;
     }
 
+    @Override
+    public String toString() {
+        return "JwtAuthenticationFilter{" +
+                "jwtService=" + jwtService +
+                ", userDetailsService=" + userDetailsService +
+                '}';
+    }
 }

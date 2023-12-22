@@ -3,9 +3,9 @@ package com.example.effectiveMoblile.auth;
 
 
 import com.example.effectiveMoblile.config.JwtService;
-import com.example.effectiveMoblile.user.Role;
-import com.example.effectiveMoblile.user.User;
-import com.example.effectiveMoblile.user.UserRepository;
+import com.example.effectiveMoblile.model.Role;
+import com.example.effectiveMoblile.model.User;
+import com.example.effectiveMoblile.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,7 +34,7 @@ public class AuthenticationService {
         String jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
-                .build();           //проверить верхнюю из респонсАутикэйен
+                .build();
 
     }
 
@@ -61,4 +61,13 @@ public class AuthenticationService {
         this.authenticationManager = authenticationManager;
     }
 
+    @Override
+    public String toString() {
+        return "AuthenticationService{" +
+                "userRepository=" + userRepository +
+                ", passwordEncoder=" + passwordEncoder +
+                ", jwtService=" + jwtService +
+                ", authenticationManager=" + authenticationManager +
+                '}';
+    }
 }
