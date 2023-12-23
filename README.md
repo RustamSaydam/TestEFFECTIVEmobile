@@ -2,7 +2,7 @@
 ## My name is Rustam Saidam, and I am glad welcome you in my app.
 ### I will very hope, that you get enjoying with my instructions!
 
-
+ 
 #### Stack: Spring boot 3.2.0, Spring Security + JWT Token, DB PostgreSQL, Gradle.KTS, Swagger + Open api, Java 17, Docker, JUnit test, Mockito, Postman.
 
 For launch this project in Docker, you are must:
