@@ -5,12 +5,14 @@
  
 #### Stack: Spring boot 3.2.0, Spring Security + JWT Token, DB PostgreSQL, Gradle.KTS, Swagger + Open api, Java 17, Docker, JUnit test, Mockito, Postman.
 
-For launch this project in Docker, you are must:
+For launch this project in Docker, you must:
 
-1) Have a docker.
-2) Download the docker-compose
-   [Docker-Compose.yml](https://github.com/RustamSaydam/TestEFFECTIVEmobile/blob/saidam_back_beta/docker-compose.yml) ,
-3) When you download  the docker-compose, you are must find this String and few edit:
+1) Download Docker and will registration. (check and write the command docker version)
+2) Download Idea IntelliJ idea or different.
+3) Download the docker-compose
+   [Docker-Compose.yml](https://github.com/RustamSaydam/TestEFFECTIVEmobile/blob/saidam_back_beta/docker-compose.yml), (this version file for run when you are have project in local machine)
+
+4) When you downloaded the docker-compose, you must find this String and few edit:
 _________________________________
 ``` java
 version: '2'
@@ -40,7 +42,7 @@ depends_on:
 environment:
 ```
 _______________________________
-4) Run this command in console: docker-compose up, and if you are done all step right, you can get REST api my app in [Swagger specification.](http://localhost:8080/swagger-ui/index.html#/authentication-controller)
+5) Run this command in console IntelliJ Idea: docker-compose up, and if you are done all step right, project will download from docker hub, and you can run REST api my app in [Swagger specification.](http://localhost:8080/swagger-ui/index.html#/authentication-controller)
  
 ![HelloWorld](https://github.com/RustamSaydam/RustamSaydam/blob/master/Screenshot%202023-12-23%20at%2023.13.03.png?raw=true)
 
